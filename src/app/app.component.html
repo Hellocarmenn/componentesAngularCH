@@ -1,0 +1,13 @@
+<!--app-nested-component-1/>
+<app-nested-component-2/>-->
+<!--Llamando a los componentes hijos-->
+<h2>Empleados Presentes</h2>
+<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosPresentes')" [data]="empleadosPresentes"/>
+<div class="m-5"> </div>
+
+<!--
+$event ==== Representa los datos que envia Eventmitter desde el hijo mediante la funcion emit
+-->
+<h2>Empleados Ausentes</h2>
+
+<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosAusentes')" [data]="empleadosAusentes"/>
