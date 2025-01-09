@@ -1,13 +1,29 @@
 <!--app-nested-component-1/>
 <app-nested-component-2/>-->
 <!--Llamando a los componentes hijos-->
+
+<!--
+[] ===> Informacion de padre a hijo (valor entrada)
+() ===> Informacion de hijo a padre 
+ [()]  ===> Informacion en doble sentido 
+-->
+ <button (click)="modalVisible= true" class="btn btn-primary">
+    Abril modal
+ </button>
+
 <h2>Empleados Presentes</h2>
-<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosPresentes')" [data]="empleadosPresentes"/>
-<div class="m-5"> </div>
+<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosPresentes')" [data]="empleadosPresentes" />
+
+<div #myDiv class="m-5"> </div>
 
 <!--
 $event ==== Representa los datos que envia Eventmitter desde el hijo mediante la funcion emit
 -->
 <h2>Empleados Ausentes</h2>
 
-<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosAusentes')" [data]="empleadosAusentes"/>
+<app-empleados-lista (eliminarEmpleado)="eliminarEmpleado($event,'empleadosAusentes')" [data]="empleadosAusentes" />
+<!--
+<app-my-modal [visible]="modalVisible" (cerrarModal)="modalVisible = false" />
+-->
+
+<app-my-modal [(visible)]="  modalVisible"/>
